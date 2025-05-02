@@ -1,4 +1,4 @@
-from testCase import TestCase
+from testFramework import TestCase, TestResult
 
 class MyTest(TestCase):
     def set_up(self):
@@ -16,11 +16,16 @@ class MyTest(TestCase):
     def test_c(self):
         print('test_c')
 
+
+result = TestResult()
+
 test = MyTest('test_a')
-test.run()
+test.run(result)
 
 test = MyTest('test_b')
-test.run()
+test.run(result)
 
 test = MyTest('test_c')
-test.run()
+test.run(result)
+
+print(result.summary())
